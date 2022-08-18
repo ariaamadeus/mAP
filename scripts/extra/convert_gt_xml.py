@@ -30,6 +30,7 @@ for tmp_file in xml_list:
     root = ET.parse(tmp_file).getroot()
     for obj in root.findall('object'):
       obj_name = obj.find('name').text
+      if obj_name == "bg" : continue
       bndbox = obj.find('bndbox')
       left = bndbox.find('xmin').text
       top = bndbox.find('ymin').text
